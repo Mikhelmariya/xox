@@ -15,7 +15,6 @@ void main() {
   );
 }
 
-var XorO = 0;
 String text = "images/black1.png";
 
 class XOX extends StatefulWidget {
@@ -31,84 +30,20 @@ class _XOXState extends State<XOX> {
       child: Container(
         height: 180,
         width: 180,
-        child: GridView.count(
-          crossAxisCount: 3,
-          crossAxisSpacing: 2,
-          mainAxisSpacing: 2,
-          children: [
-            GestureDetector(
+        child: GridView.builder(
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          itemCount: 9,
+          itemBuilder: (context, index) {
+            return GestureDetector(
               child: Container(height: 60, width: 60, child: Image.asset(text)),
               onTap: () {
                 setState(() {
                   text = 'images/image0.png';
                 });
               },
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  text = 'images/image0.png';
-                });
-              },
-              child: getContainer(text),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  text = 'images/image0.png';
-                });
-              },
-              child: getContainer(text),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  text = 'images/image0.png';
-                });
-              },
-              child: getContainer(text),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  text = 'images/image0.png';
-                });
-              },
-              child: getContainer(text),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  text = 'images/image0.png';
-                });
-              },
-              child: getContainer(text),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  text = 'images/image0.png';
-                });
-              },
-              child: getContainer(text),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  text = 'images/image0.png';
-                });
-              },
-              child: getContainer(text),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  text = 'images/image0.png';
-                });
-              },
-              child: getContainer(text),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
