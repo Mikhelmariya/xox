@@ -23,6 +23,9 @@ class XOX extends StatefulWidget {
   State<XOX> createState() => _XOXState();
 }
 
+String text = "images/black1.png";
+List<String> display = ['', '', '', '', '', '', '', '', ''];
+
 class _XOXState extends State<XOX> {
   void _changeImage(text) {
     setState(() {
@@ -30,12 +33,12 @@ class _XOXState extends State<XOX> {
     });
   }
 
-  String text = "images/black1.png";
   Container getContainer(String text, bool value) {
     return Container(
       height: 60,
       width: 60,
       child: Image.asset(text),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(55)),
     );
   }
 
@@ -71,12 +74,16 @@ class _XOXState extends State<XOX> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3),
                 itemCount: 9,
-                itemBuilder: (context, index) {
+                itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
-                    child: getContainer(text, value),
+                    child: Container(
+                      height: 60,
+                      width: 60,
+                      child: Image.asset(text),
+                    ),
                     onTap: () {
                       setState(() {
-                        text = 'images/image0.png';
+                        _tapped(index);
                       });
                     },
                   );
@@ -88,4 +95,13 @@ class _XOXState extends State<XOX> {
       ],
     );
   }
+}
+
+void _tapped(int index) {
+  if (value && display[index] == '') {
+    text = "images/image0.png";
+  } else {
+    text = "images/image1.png";
+  }
+  value = !value;
 }
