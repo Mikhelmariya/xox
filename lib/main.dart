@@ -36,7 +36,7 @@ class _XOXState extends State<XOX> {
           itemCount: 9,
           itemBuilder: (context, index) {
             return GestureDetector(
-              child: Container(height: 60, width: 60, child: Image.asset(text)),
+              child: getContainer(text),
               onTap: () {
                 setState(() {
                   text = 'images/image0.png';
