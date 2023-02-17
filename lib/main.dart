@@ -9,141 +9,116 @@ void main() {
           title: Center(child: Text("Tic Tac Toe")),
           backgroundColor: Colors.black,
         ),
-        body: Center(
-          child: Container(
-            height: 180,
-            width: 180,
-            child: GridView.count(
-              crossAxisCount: 3,
-              crossAxisSpacing: 11,
-              mainAxisSpacing: 11,
-              children: [
-                Container(
-                  color: Colors.black,
-                  height: 60,
-                  width: 60,
-                ),
-                Container(
-                  color: Colors.black,
-                  height: 60,
-                  width: 60,
-                ),
-                Container(
-                  color: Colors.black,
-                  height: 60,
-                  width: 60,
-                ),
-                Container(
-                  color: Colors.black,
-                  height: 60,
-                  width: 60,
-                ),
-                Container(
-                  color: Colors.black,
-                  height: 60,
-                  width: 60,
-                ),
-                Container(
-                  color: Colors.black,
-                  height: 60,
-                  width: 60,
-                ),
-                Container(
-                  color: Colors.black,
-                  height: 60,
-                  width: 60,
-                ),
-                Container(
-                  color: Colors.black,
-                  height: 60,
-                  width: 60,
-                ),
-                Container(
-                  color: Colors.black,
-                  height: 60,
-                  width: 60,
-                ),
-                // ListView.builder(
-                //     itemCount: 9,
-                //     itemBuilder: ((context, index) {
-                //       return Container(
-                //         color: Colors.black,
-                //         height: 60,
-                //         width: 60,
-                //       );
-                //     }))
-              ],
-            ),
-          ),
-        ),
+        body: XOX(),
       ),
     ),
   );
 }
 
+var XorO = 0;
+String text = "images/black1.png";
 
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({super.key});
+class XOX extends StatefulWidget {
+  @override
+  State<XOX> createState() => _XOXState();
+}
 
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
+class _XOXState extends State<XOX> {
+  @override
+  Widget build(BuildContext context) {
+    var XorO = 0;
+    return Center(
+      child: Container(
+        height: 180,
+        width: 180,
+        child: GridView.count(
+          crossAxisCount: 3,
+          crossAxisSpacing: 2,
+          mainAxisSpacing: 2,
+          children: [
+            GestureDetector(
+              child: Container(height: 60, width: 60, child: Image.asset(text)),
+              onTap: () {
+                setState(() {
+                  text = 'images/image0.png';
+                });
+              },
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  text = 'images/image0.png';
+                });
+              },
+              child: getContainer(text),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  text = 'images/image0.png';
+                });
+              },
+              child: getContainer(text),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  text = 'images/image0.png';
+                });
+              },
+              child: getContainer(text),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  text = 'images/image0.png';
+                });
+              },
+              child: getContainer(text),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  text = 'images/image0.png';
+                });
+              },
+              child: getContainer(text),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  text = 'images/image0.png';
+                });
+              },
+              child: getContainer(text),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  text = 'images/image0.png';
+                });
+              },
+              child: getContainer(text),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  text = 'images/image0.png';
+                });
+              },
+              child: getContainer(text),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-// class _MyHomePageState extends State<MyHomePage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//         home: Scaffold(
-//       body: Container(
-//         ///height: MediaQuery.of(context).size.height,
-//         height: 600,
-//         width: 360,
-//         color: Colors.green,
-//         child: Center(
-//           child: Container(
-//             height: 180,
-//             width: 180,
-//             color: Colors.grey,
-//             child: GridView.count(
-//               crossAxisCount: 3,
-//               crossAxisSpacing: 11,
-//               mainAxisSpacing: 11,
-//               children: [
-//                 Container(
-//                   height: 60,
-//                   width: 60,
-//                   color: Colors.black,
-//                 ),
-//                 Container(
-//                   height: 60,
-//                   width: 60,
-//                   color: Colors.white,
-//                 ),
-//                 Container(
-//                   height: 60,
-//                   width: 60,
-//                   color: Colors.black,
-//                 ),
-//                 Container(
-//                   height: 60,
-//                   width: 60,
-//                   color: Colors.red,
-//                 ),
-//                 Container(
-//                   height: 60,
-//                   width: 60,
-//                   color: Colors.green,
-//                 ),
-//                 Container(
-//                   height: 60,
-//                   width: 60,
-//                   color: Colors.blue,
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     ));
-//   }
-// }
+Container getContainer(String text) {
+  return Container(
+    height: 60,
+    width: 60,
+    child: Image.asset(text),
+  );
+}
