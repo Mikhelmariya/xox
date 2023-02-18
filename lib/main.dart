@@ -24,14 +24,9 @@ class XOX extends StatefulWidget {
 }
 
 String text = "images/black1.png";
-List<String> display = ['', '', '', '', '', '', '', '', ''];
 
 class _XOXState extends State<XOX> {
-  void _changeImage(text) {
-    setState(() {
-      text = 'images/image0.png';
-    });
-  }
+  List<String> display = ['', '', '', '', '', '', '', '', ''];
 
   Container getContainer(String text, bool value) {
     return Container(
@@ -76,16 +71,16 @@ class _XOXState extends State<XOX> {
                 itemCount: 9,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        text = _tapped(index);
+                      });
+                    },
                     child: Container(
                       height: 60,
                       width: 60,
                       child: Image.asset(text),
                     ),
-                    onTap: () {
-                      setState(() {
-                        _tapped(index);
-                      });
-                    },
                   );
                 },
               ),
@@ -95,13 +90,16 @@ class _XOXState extends State<XOX> {
       ],
     );
   }
-}
 
-void _tapped(int index) {
-  if (value && display[index] == '') {
-    text = "images/image0.png";
-  } else {
-    text = "images/image1.png";
+  String _tapped(int index) {
+    setState(() {
+      if (value && display[index] == '') {
+        text = "images/image0.png";
+      } else {
+        text = "images/image1.png";
+      }
+      value = !value;
+    });
+    return text;
   }
-  value = !value;
 }
