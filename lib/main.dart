@@ -23,10 +23,20 @@ class XOX extends StatefulWidget {
   State<XOX> createState() => _XOXState();
 }
 
-String text = "images/black1.png";
+//String text = "images/black1.png";
 
 class _XOXState extends State<XOX> {
-  List<String> display = ['', '', '', '', '', '', '', '', ''];
+  List<String> display = [
+    "images/black1.png",
+    "images/black1.png",
+    "images/black1.png",
+    "images/black1.png",
+    "images/black1.png",
+    "images/black1.png",
+    "images/black1.png",
+    "images/black1.png",
+    "images/black1.png",
+  ];
 
   Container getContainer(String text, bool value) {
     return Container(
@@ -69,20 +79,20 @@ class _XOXState extends State<XOX> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3),
                 itemCount: 9,
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        text = _tapped(index);
-                      });
-                    },
-                    child: Container(
-                      height: 60,
-                      width: 60,
-                      child: Image.asset(text),
-                    ),
-                  );
-                },
+                itemBuilder: (BuildContext context, int index) =>
+                    new GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _tapped(index);
+                      print(index);
+                    });
+                  },
+                  child: Container(
+                    height: 60,
+                    width: 60,
+                    child: Image.asset(display[index]),
+                  ),
+                ),
               ),
             ),
           ),
@@ -91,15 +101,16 @@ class _XOXState extends State<XOX> {
     );
   }
 
-  String _tapped(int index) {
+  void _tapped(int index) {
     setState(() {
-      if (value && display[index] == '') {
-        text = "images/image0.png";
+      if (value && display[index] == "images/black1.png") {
+        display[index] = "images/image0.png";
+        print("inside if");
       } else {
-        text = "images/image1.png";
+        display[index] = "images/image1.png";
+        print("inside else");
       }
       value = !value;
     });
-    return text;
   }
 }
