@@ -21,6 +21,7 @@ void main() {
 
 bool value = false;
 int flag = 1;
+int count = 0;
 String winner = " Who will be the winner??";
 
 class XOX extends StatefulWidget {
@@ -104,6 +105,7 @@ class _XOXState extends State<XOX> {
                 itemBuilder: (BuildContext context, int index) =>
                     new GestureDetector(
                   onTap: () {
+                    count++;
                     setState(() {
                       _tapped(index);
                       print(index);
@@ -150,7 +152,7 @@ class _XOXState extends State<XOX> {
         cancelBtnText: 'No',
         confirmBtnColor: Colors.green,
         onCancelBtnTap: (() {
-          Navigator.pop(context);
+          //Navigator.pop(context);
           setState(() {
             SystemNavigator.pop();
           });
@@ -176,7 +178,6 @@ class _XOXState extends State<XOX> {
       );
     }
 
-    int flag = 1;
     if (display[0] == display[1] &&
         display[2] == display[1] &&
         display[0] == "images/image0.png") {
@@ -327,6 +328,12 @@ class _XOXState extends State<XOX> {
     } else {
       setState(() {
         winner = "Great Job!!";
+      });
+    }
+    if (flag == 1 && count == 9) {
+      setState(() {
+        winner = "Well done both of you!!";
+        showAlert("That's a Draw!!");
       });
     }
   }
