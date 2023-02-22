@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:quickalert/quickalert.dart';
+import 'package:restart_app/restart_app.dart';
 
 void main() {
   runApp(
@@ -26,7 +29,9 @@ class XOX extends StatefulWidget {
 }
 
 //String text = "images/black1.png";
+// void init(){
 
+// }
 class _XOXState extends State<XOX> {
   List<String> display = [
     "images/black1.png",
@@ -134,12 +139,49 @@ class _XOXState extends State<XOX> {
 
   void _isWinner(int index) {
     //Across rows
+    void showAlert(String titletext) {
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.confirm,
+        title: titletext,
+        text: 'Do you want to play again?',
+        confirmBtnText: 'Yes',
+        cancelBtnText: 'No',
+        confirmBtnColor: Colors.green,
+        onCancelBtnTap: (() {
+          Navigator.pop(context);
+          setState(() {
+            SystemNavigator.pop();
+          });
+        }),
+        onConfirmBtnTap: () {
+          Navigator.pop(context);
+          setState(() {
+            display = [
+              'images/black1.png',
+              'images/black1.png',
+              'images/black1.png',
+              'images/black1.png',
+              'images/black1.png',
+              'images/black1.png',
+              'images/black1.png',
+              'images/black1.png',
+              'images/black1.png'
+            ];
+          });
+
+          print("confirm button pressed");
+        },
+      );
+    }
+
     if (display[0] == display[1] &&
         display[2] == display[1] &&
         display[0] == "images/image0.png") {
       print("loop 1");
       setState(() {
         winner = "Player X is the winner";
+        showAlert("Player X is the winner");
       });
     } else if (display[0] == display[1] &&
         display[2] == display[1] &&
@@ -147,6 +189,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 2 IMAGE1");
       setState(() {
         winner = "Player O is the winner";
+        showAlert("Player O is the winner");
       });
     } else if (display[3] == display[4] &&
         display[5] == display[3] &&
@@ -154,6 +197,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 3 IMAGE1");
       setState(() {
         winner = "Player O is the winner";
+        showAlert("Player O is the winner");
       });
     } else if (display[3] == display[4] &&
         display[5] == display[3] &&
@@ -161,6 +205,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 4 IMAGE 0");
       setState(() {
         winner = "Player X is the winner";
+        showAlert("Player X is the winner");
       });
     } else if (display[6] == display[7] &&
         display[8] == display[6] &&
@@ -168,6 +213,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 5 IMAGE 0");
       setState(() {
         winner = "Player X is the winner";
+        showAlert("Player X is the winner");
       });
     } else if (display[6] == display[7] &&
         display[8] == display[6] &&
@@ -175,6 +221,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 6 IMAGE 1");
       setState(() {
         winner = "Player O is the winner";
+        showAlert("Player O is the winner");
       });
       //Across diagonals
     } else if (display[0] == display[4] &&
@@ -183,6 +230,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 7 IMAGE 1");
       setState(() {
         winner = "Player O is the winner";
+        showAlert("Player O is the winner");
       });
     } else if (display[2] == display[4] &&
         display[6] == display[2] &&
@@ -190,6 +238,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 8 IMAGE1");
       setState(() {
         winner = "Player O is the winner";
+        showAlert("Player O is the winner");
       });
     } else if (display[2] == display[4] &&
         display[6] == display[2] &&
@@ -197,6 +246,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 9 IMAGE1");
       setState(() {
         winner = "Player X is the winner";
+        showAlert("Player X is the winner");
       });
     } else if (display[0] == display[4] &&
         display[8] == display[0] &&
@@ -204,6 +254,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 10 IMAGE 1");
       setState(() {
         winner = "Player X is the winner";
+        showAlert("Player X is the winner");
       });
     }
     // Across column
@@ -213,6 +264,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 3 IMAGE1");
       setState(() {
         winner = "Player O is the winner";
+        showAlert("Player O is the winner");
       });
     } else if (display[0] == display[3] &&
         display[6] == display[3] &&
@@ -220,6 +272,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 3 IMAGE1");
       setState(() {
         winner = "Player X is the winner";
+        showAlert("Player X is the winner");
       });
     } else if (display[1] == display[4] &&
         display[7] == display[1] &&
@@ -227,6 +280,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 3 IMAGE1");
       setState(() {
         winner = "Player O is the winner";
+        showAlert("Player O is the winner");
       });
     } else if (display[1] == display[4] &&
         display[7] == display[1] &&
@@ -234,6 +288,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 3 IMAGE1");
       setState(() {
         winner = "Player X is the winner";
+        showAlert("Player X is the winner");
       });
     } else if (display[2] == display[5] &&
         display[8] == display[2] &&
@@ -241,6 +296,7 @@ class _XOXState extends State<XOX> {
       print("LOOP 3 IMAGE1");
       setState(() {
         winner = "Player O is the winner";
+        showAlert("Player O is the winner");
       });
     } else if (display[2] == display[5] &&
         display[8] == display[2] &&
@@ -248,10 +304,11 @@ class _XOXState extends State<XOX> {
       print("LOOP 3 IMAGE1");
       setState(() {
         winner = "Player X is the winner";
+        showAlert("Player X is the winner");
       });
     } else {
       setState(() {
-        winner = "Well done both of you!!";
+        winner = "Great Job!!";
       });
     }
   }
