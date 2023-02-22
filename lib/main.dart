@@ -16,6 +16,8 @@ void main() {
 }
 
 bool value = false;
+int flag = 1;
+String winner = " Who will be the winner??";
 
 class XOX extends StatefulWidget {
   XOX();
@@ -69,6 +71,20 @@ class _XOXState extends State<XOX> {
             ],
           ),
         ),
+        Container(
+          height: 30,
+          width: 190,
+          decoration: BoxDecoration(
+              color: Color.fromARGB(255, 11, 91, 52),
+              borderRadius: BorderRadius.circular(60)),
+          child: Center(
+            child: Text(
+              winner,
+              style:
+                  TextStyle(fontWeight: FontWeight.w900, color: Colors.white),
+            ),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.only(top: 100),
           child: Center(
@@ -85,6 +101,8 @@ class _XOXState extends State<XOX> {
                     setState(() {
                       _tapped(index);
                       print(index);
+
+                      _isWinner(index);
                     });
                   },
                   child: Container(
@@ -112,5 +130,129 @@ class _XOXState extends State<XOX> {
       }
       value = !value;
     });
+  }
+
+  void _isWinner(int index) {
+    //Across rows
+    if (display[0] == display[1] &&
+        display[2] == display[1] &&
+        display[0] == "images/image0.png") {
+      print("loop 1");
+      setState(() {
+        winner = "Player X is the winner";
+      });
+    } else if (display[0] == display[1] &&
+        display[2] == display[1] &&
+        display[0] == "images/image1.png") {
+      print("LOOP 2 IMAGE1");
+      setState(() {
+        winner = "Player O is the winner";
+      });
+    } else if (display[3] == display[4] &&
+        display[5] == display[3] &&
+        display[3] == "images/image1.png") {
+      print("LOOP 3 IMAGE1");
+      setState(() {
+        winner = "Player O is the winner";
+      });
+    } else if (display[3] == display[4] &&
+        display[5] == display[3] &&
+        display[3] == "images/image0.png") {
+      print("LOOP 4 IMAGE 0");
+      setState(() {
+        winner = "Player X is the winner";
+      });
+    } else if (display[6] == display[7] &&
+        display[8] == display[6] &&
+        display[6] == "images/image0.png") {
+      print("LOOP 5 IMAGE 0");
+      setState(() {
+        winner = "Player X is the winner";
+      });
+    } else if (display[6] == display[7] &&
+        display[8] == display[6] &&
+        display[6] == "images/image1.png") {
+      print("LOOP 6 IMAGE 1");
+      setState(() {
+        winner = "Player O is the winner";
+      });
+      //Across diagonals
+    } else if (display[0] == display[4] &&
+        display[8] == display[0] &&
+        display[0] == "images/image1.png") {
+      print("LOOP 7 IMAGE 1");
+      setState(() {
+        winner = "Player O is the winner";
+      });
+    } else if (display[2] == display[4] &&
+        display[6] == display[2] &&
+        display[2] == "images/image1.png") {
+      print("LOOP 8 IMAGE1");
+      setState(() {
+        winner = "Player O is the winner";
+      });
+    } else if (display[2] == display[4] &&
+        display[6] == display[2] &&
+        display[2] == "images/image0.png") {
+      print("LOOP 9 IMAGE1");
+      setState(() {
+        winner = "Player X is the winner";
+      });
+    } else if (display[0] == display[4] &&
+        display[8] == display[0] &&
+        display[0] == "images/image0.png") {
+      print("LOOP 10 IMAGE 1");
+      setState(() {
+        winner = "Player X is the winner";
+      });
+    }
+    // Across column
+    else if (display[0] == display[3] &&
+        display[6] == display[3] &&
+        display[3] == "images/image1.png") {
+      print("LOOP 3 IMAGE1");
+      setState(() {
+        winner = "Player O is the winner";
+      });
+    } else if (display[0] == display[3] &&
+        display[6] == display[3] &&
+        display[3] == "images/image0.png") {
+      print("LOOP 3 IMAGE1");
+      setState(() {
+        winner = "Player X is the winner";
+      });
+    } else if (display[1] == display[4] &&
+        display[7] == display[1] &&
+        display[1] == "images/image1.png") {
+      print("LOOP 3 IMAGE1");
+      setState(() {
+        winner = "Player O is the winner";
+      });
+    } else if (display[1] == display[4] &&
+        display[7] == display[1] &&
+        display[1] == "images/image0.png") {
+      print("LOOP 3 IMAGE1");
+      setState(() {
+        winner = "Player X is the winner";
+      });
+    } else if (display[2] == display[5] &&
+        display[8] == display[2] &&
+        display[2] == "images/image1.png") {
+      print("LOOP 3 IMAGE1");
+      setState(() {
+        winner = "Player O is the winner";
+      });
+    } else if (display[2] == display[5] &&
+        display[8] == display[2] &&
+        display[2] == "images/image0.png") {
+      print("LOOP 3 IMAGE1");
+      setState(() {
+        winner = "Player X is the winner";
+      });
+    } else {
+      setState(() {
+        winner = "Well done both of you!!";
+      });
+    }
   }
 }
