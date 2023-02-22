@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:restart_app/restart_app.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(
@@ -175,10 +176,12 @@ class _XOXState extends State<XOX> {
       );
     }
 
+    int flag = 1;
     if (display[0] == display[1] &&
         display[2] == display[1] &&
         display[0] == "images/image0.png") {
       print("loop 1");
+      flag = 0;
       setState(() {
         winner = "Player X is the winner";
         showAlert("Player X is the winner");
@@ -187,6 +190,7 @@ class _XOXState extends State<XOX> {
         display[2] == display[1] &&
         display[0] == "images/image1.png") {
       print("LOOP 2 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player O is the winner";
         showAlert("Player O is the winner");
@@ -195,6 +199,7 @@ class _XOXState extends State<XOX> {
         display[5] == display[3] &&
         display[3] == "images/image1.png") {
       print("LOOP 3 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player O is the winner";
         showAlert("Player O is the winner");
@@ -203,6 +208,7 @@ class _XOXState extends State<XOX> {
         display[5] == display[3] &&
         display[3] == "images/image0.png") {
       print("LOOP 4 IMAGE 0");
+      flag = 0;
       setState(() {
         winner = "Player X is the winner";
         showAlert("Player X is the winner");
@@ -211,6 +217,7 @@ class _XOXState extends State<XOX> {
         display[8] == display[6] &&
         display[6] == "images/image0.png") {
       print("LOOP 5 IMAGE 0");
+      flag = 0;
       setState(() {
         winner = "Player X is the winner";
         showAlert("Player X is the winner");
@@ -219,6 +226,7 @@ class _XOXState extends State<XOX> {
         display[8] == display[6] &&
         display[6] == "images/image1.png") {
       print("LOOP 6 IMAGE 1");
+      flag = 0;
       setState(() {
         winner = "Player O is the winner";
         showAlert("Player O is the winner");
@@ -228,6 +236,7 @@ class _XOXState extends State<XOX> {
         display[8] == display[0] &&
         display[0] == "images/image1.png") {
       print("LOOP 7 IMAGE 1");
+      flag = 0;
       setState(() {
         winner = "Player O is the winner";
         showAlert("Player O is the winner");
@@ -236,6 +245,7 @@ class _XOXState extends State<XOX> {
         display[6] == display[2] &&
         display[2] == "images/image1.png") {
       print("LOOP 8 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player O is the winner";
         showAlert("Player O is the winner");
@@ -244,6 +254,7 @@ class _XOXState extends State<XOX> {
         display[6] == display[2] &&
         display[2] == "images/image0.png") {
       print("LOOP 9 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player X is the winner";
         showAlert("Player X is the winner");
@@ -252,6 +263,7 @@ class _XOXState extends State<XOX> {
         display[8] == display[0] &&
         display[0] == "images/image0.png") {
       print("LOOP 10 IMAGE 1");
+      flag = 0;
       setState(() {
         winner = "Player X is the winner";
         showAlert("Player X is the winner");
@@ -262,6 +274,7 @@ class _XOXState extends State<XOX> {
         display[6] == display[3] &&
         display[3] == "images/image1.png") {
       print("LOOP 3 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player O is the winner";
         showAlert("Player O is the winner");
@@ -270,6 +283,7 @@ class _XOXState extends State<XOX> {
         display[6] == display[3] &&
         display[3] == "images/image0.png") {
       print("LOOP 3 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player X is the winner";
         showAlert("Player X is the winner");
@@ -278,6 +292,7 @@ class _XOXState extends State<XOX> {
         display[7] == display[1] &&
         display[1] == "images/image1.png") {
       print("LOOP 3 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player O is the winner";
         showAlert("Player O is the winner");
@@ -286,6 +301,7 @@ class _XOXState extends State<XOX> {
         display[7] == display[1] &&
         display[1] == "images/image0.png") {
       print("LOOP 3 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player X is the winner";
         showAlert("Player X is the winner");
@@ -294,6 +310,7 @@ class _XOXState extends State<XOX> {
         display[8] == display[2] &&
         display[2] == "images/image1.png") {
       print("LOOP 3 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player O is the winner";
         showAlert("Player O is the winner");
@@ -302,6 +319,7 @@ class _XOXState extends State<XOX> {
         display[8] == display[2] &&
         display[2] == "images/image0.png") {
       print("LOOP 3 IMAGE1");
+      flag = 0;
       setState(() {
         winner = "Player X is the winner";
         showAlert("Player X is the winner");
